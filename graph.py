@@ -18,4 +18,24 @@ class PriorityQueue:
         return heappush(self.heap, x)
 
 
+def dijkstra_dists(G, source):
+    """Return the length of the shortest path from a starting node called source
+    to other nodes in the graph G (assumed to be index from 0)."""
+    distance = [INF for _ in range(len(G))]
+    distance[source] = 0
+    processed = {node: False for node in G}
+
+    q = PriorityQueue([(0, x)])
+    while q:
+        a = q.pop()[1]
+        if processed[a]:
+            continue
+
+        processed[a] = True
+        for b, w in G[a]:
+            if distance[a]+w < distance[b]:
+                distance[b] = distance[a]+w
+                q.push([-distance[b], b])
+
+    return distance
 
