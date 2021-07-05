@@ -17,6 +17,9 @@ class PriorityQueue:
     def push(self, x):
         heappush(self.heap, x)
 
+    def __bool__(self):
+        return len(self.heap) > 0
+
 
 def dijkstra_dists(G, source):
     """Return the length of the shortest path from a starting node called source
@@ -38,4 +41,3 @@ def dijkstra_dists(G, source):
                 q.push([-distance[b], b])
 
     return distance
-
