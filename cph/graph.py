@@ -25,7 +25,7 @@ def dijkstra_dists(G, source):
     distance[source] = 0
     processed = {node: False for node in G}
 
-    q = PriorityQueue([(0, x)])
+    q = PriorityQueue([(0, source)])
     while q:
         a = q.pop()[1]
         if processed[a]:
