@@ -1,7 +1,7 @@
 import pytest
 
 
-from cph import dijkstra_dists
+from cph.graph import dijkstra_dists
 
 
 @pytest.fixture
@@ -25,5 +25,5 @@ def graph_tests():
 
 def test_dijkstra_dists(graph_tests):
     for graph, answer in graph_tests:
-        assert dijkstra_dists(graph) == answer
+        assert dijkstra_dists(graph, 1) == answer
 
