@@ -12,10 +12,10 @@ class PriorityQueue:
         heapify(self.heap)
 
     def pop(self):
-        return heappush(self.heap)
+        return heappop(self.heap)
 
     def push(self, x):
-        return heappush(self.heap, x)
+        heappush(self.heap, x)
 
 
 def dijkstra_dists(G, source):
